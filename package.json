@@ -1,0 +1,21 @@
+{
+  "name": "websocketPOC",
+  "version": "0.0.0",
+  "description": "this is a POC for websocket connection to multiple app to keep all the apps in sync",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chhetrisushil/websocketPOC.git"
+  },
+  "keywords": [
+    "websocket"
+  ],
+  "author": "roguechhetri",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/chhetrisushil/websocketPOC/issues"
+  }
+}
