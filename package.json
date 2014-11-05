@@ -17,5 +17,8 @@
   "license": "BSD",
   "bugs": {
     "url": "https://github.com/chhetrisushil/websocketPOC/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5"
   }
 }
