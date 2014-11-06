@@ -5,6 +5,7 @@ var application_root = __dirname,
     errorHandler = require('express-error-handler'),
     ejs = require('ejs'),
     path = require('path'),
+    router = require('./router.js'),
     server = express();
 
 server.use(bodyParser());
@@ -14,9 +15,7 @@ server.use(express.static('client/static/'));
 server.set('views', path.join(application_root, '..', '/client'));
 server.engine('html', ejs.renderFile);
 
-// serve index.html
-server.get('/', function (req, res, next) {
-      res.render('index.html'); 
-});
+// register routes to server
+router(server);
 
 server.listen(3001);
