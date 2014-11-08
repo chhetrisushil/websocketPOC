@@ -15,7 +15,7 @@ var gulp = require('gulp'),
     gutil = require('gulp-util'),
     livereload = require('gulp-livereload');
 
-function shwallowerror(error) {
+function swallowerror(error) {
   console.log(error);
   this.emit('end');
 }
@@ -32,7 +32,7 @@ gulp.task('less', function () {
   return gulp.src('client/static/less/style.less')
           // .pipe(plumber())
           .pipe(less())
-          .on('error', shwallowerror)
+          .on('error', swallowerror)
           .pipe(gulp.dest('client/static/dist/css'))
           .pipe(livereload(4000));
 });
@@ -42,7 +42,7 @@ gulp.task('coffee', function () {
   return gulp.src('client/static/coffee/*.coffee')
           // .pipe(plumber())
           .pipe(coffee())
-          .on('error', shwallowerror)
+          .on('error', swallowerror)
           .pipe(gulp.dest('client/static/dist/js'));
 });
 
