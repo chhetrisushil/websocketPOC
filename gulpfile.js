@@ -46,6 +46,12 @@ gulp.task('coffee', function () {
           .pipe(gulp.dest('client/static/dist/js'));
 });
 
+//copy libs to dest
+gulp.task('libs-copy', function () {
+  return gulp.src('client/static/lib/*.js')
+          .pipe(gulp.dest('client/static/dist/js'));
+});
+
 //watch files for changes
 gulp.task('watch', function () {
   gulp.watch('client/static/coffee/*.coffee', ['coffee']);
@@ -53,4 +59,4 @@ gulp.task('watch', function () {
 });
 
 //default task
-gulp.task('default', ['lint', 'less', 'coffee', 'watch']);
+gulp.task('default', ['lint', 'less', 'coffee', 'libs-copy','watch']);

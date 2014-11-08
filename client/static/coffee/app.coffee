@@ -1,1 +1,3 @@
-alert "hi this is a test alert!"
+test = -> console.log angular, "something";
+
+do test;
