@@ -12,7 +12,8 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     coffee = require('gulp-coffee'),
     // plumber = require('gulp-plumber'),
-    gutil = require('gulp-util');
+    gutil = require('gulp-util'),
+    livereload = require('gulp-livereload');
 
 function shwallowerror(error) {
   console.log(error);
@@ -32,7 +33,8 @@ gulp.task('less', function () {
           // .pipe(plumber())
           .pipe(less())
           .on('error', shwallowerror)
-          .pipe(gulp.dest('client/static/dist/css'));
+          .pipe(gulp.dest('client/static/dist/css'))
+          .pipe(livereload(4000));
 });
 
 //compile our coffee files
