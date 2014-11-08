@@ -14,6 +14,11 @@ var gulp = require('gulp'),
     // plumber = require('gulp-plumber'),
     gutil = require('gulp-util');
 
+function shwallowerror(error) {
+  console.log(error);
+  this.emit('end');
+}
+
 //lint task
 gulp.task('lint', function () {
   return gulp.src('client/static/js/*.js')
@@ -26,7 +31,7 @@ gulp.task('less', function () {
   return gulp.src('client/static/less/style.less')
           // .pipe(plumber())
           .pipe(less())
-          .on('error', gutil.log)
+          .on('error', shwallowerror)
           .pipe(gulp.dest('client/static/dist/css'));
 });
 
@@ -35,7 +40,7 @@ gulp.task('coffee', function () {
   return gulp.src('client/static/coffee/*.coffee')
           // .pipe(plumber())
           .pipe(coffee())
-          .on('error', gutil.log)
+          .on('error', shwallowerror)
           .pipe(gulp.dest('client/static/dist/js'));
 });
 
