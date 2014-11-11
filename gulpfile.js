@@ -22,9 +22,11 @@ function swallowerror(error) {
 
 //lint task
 gulp.task('lint', function () {
-  return gulp.src('client/static/js/*.js')
+  return gulp.src('client/static/js/**/*.js')
           .pipe(jshint())
-          .pipe(jshint.reporter('default'));
+          .on('error', swallowerror)
+          .pipe(jshint.reporter('default'))
+          .on('error', swallowerror);
 });
 
 //compile our less files
@@ -39,7 +41,7 @@ gulp.task('less', function () {
 
 //compile our coffee files
 gulp.task('coffee', function () {
-  return gulp.src('client/static/coffee/*.coffee')
+  return gulp.src('client/static/coffee/**/*.coffee')
           // .pipe(plumber())
           .pipe(coffee())
           .on('error', swallowerror)
@@ -48,14 +50,17 @@ gulp.task('coffee', function () {
 
 //copy libs to dest
 gulp.task('libs-copy', function () {
-  return gulp.src('client/static/lib/*.js')
-          .pipe(gulp.dest('client/static/dist/js'));
+  gulp.src('client/static/lib/**/*.js')
+    .pipe(gulp.dest('client/static/dist/js'));
+
+  return gulp.src('client/static/lib/**/*.css')
+    .pipe(gulp.dest('client/static/dist/css'));
 });
 
 //watch files for changes
 gulp.task('watch', function () {
-  gulp.watch('client/static/coffee/*.coffee', ['coffee']);
-  gulp.watch('client/static/less/*.less', ['less']);
+  gulp.watch('client/static/coffee/**/*.coffee', ['coffee']);
+  gulp.watch('client/static/less/**/*.less', ['less']);
 });
 
 //default task

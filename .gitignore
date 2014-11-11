@@ -1,3 +1,4 @@
 node_modules
 *.css
 client/static/dist
+.DS_Store
